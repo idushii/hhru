@@ -35,6 +35,10 @@
           <Items @showAll="show(index)" :isShowAll="showIndex == index" :search="item" />
         </b-col>
       </b-row>
+      <b-col>
+        <p class="tips my-footer">Обратите внимание, что данные локально кешируются при первом запросе. Для получения актуальной информации очистите кеш.</p>
+      </b-col>
+      <b-row></b-row>
     </b-container>
   </div>
 </template>
@@ -93,6 +97,12 @@ export default class App extends Vue {
 }
 
 .tips {
-  font-size: .8rem;
+  font-size: 0.8rem;
+}
+
+.my-footer {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
 }
 </style>

@@ -26,14 +26,12 @@ export default class Items extends Vue {
   @Prop() private isShowAll!: boolean;
 
   Result = [];
-
   async mounted() {
-    let areas = await load(endpoints.areas);
-    this.Result = await load(endpoints.vacancies, {
+    this.Result = await this.$store.dispatch('items/addItem', {type: endpoints.vacancies, params: {
       text: this.search,
       per_page: 100,
       page: 1
-    });
+    }})
   }
 
   showAll() {

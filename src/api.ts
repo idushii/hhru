@@ -5,19 +5,23 @@ enum endpoints {
     vacancies = "vacancies",
 }
 
-function  load(type: endpoints, params?: {}){
-    var url = new URL(`${base}/${type}`)
-    if (params)
-        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
-
-    if (window.localStorage.getItem(url.href)) {
-        return JSON.parse(window.localStorage.getItem(url.href))
+function load(type: endpoints, params?: {}) {
+    let url = getUrl(type, params)
+    if (window.localStorage.getItem(url)) {
+        return JSON.parse(window.localStorage.getItem(url))
     }
 
-    return fetch(url.href).then(r => r.json()).then(r => {
-        window.localStorage.setItem(url.href, JSON.stringify(r))
+    return fetch(url).then(r => r.json()).then(r => {
+        window.localStorage.setItem(url, JSON.stringify(r))
         return r;
     })
 }
 
-export { base, endpoints, load }
+function getUrl(type: endpoints, params?: {}) {
+    var url = new URL(`${base}/${type}`)
+    if (params)
+        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+    return url.href
+}
+
+export { base, endpoints, load, getUrl }

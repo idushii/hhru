@@ -38,40 +38,51 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue, Ref, Watch } from "vue-property-decorator";
 import Chart from "@/components/Chart.vue";
 import Items from "@/components/Items.vue";
 import MyHeader from "@/components/MyHeader.vue";
 
 @Component({
-  data: () => ({
-    //keywords: ["VueJS"],
-    keywords: ["VueJS", "ReactJS", "Angular", "TypeScript", "Dart"],
-    showIndex: null,
-    newKeyWord: ""
-  }),
-  methods: {
-    show(index) {
-      if (this.showIndex == index) this.showIndex = null;
-      else this.showIndex = index;
-    },
-    AddKeyWord() {
-      this.keywords.push(this.newKeyWord);
-      this.newKeyWord = "";
-    },
-    removeKeyWord(index, e) {
-      console.log(e.target.value);
-      if (e.target.value == "") this.keywords.splice(index, 1);
-      else this.$set(this.keywords, index, e.target.value);
-    }
-  },
   components: {
     Items,
     Chart,
     MyHeader
   }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  keywords = ["VueJS", "ReactJS", "Angular", "TypeScript", "Dart"];
+  showIndex: number = -1;
+  newKeyWord = "";
+
+  show(index: number) {
+    if (this.showIndex == index) this.showIndex = -1;
+    else this.showIndex = index;
+  }
+
+  AddKeyWord() {
+    this.keywords.push(this.newKeyWord);
+    this.newKeyWord = "";
+  }
+
+  removeKeyWord(index: number, e: any) {
+    console.log(e.target.value);
+    if (e.target.value == "") this.keywords.splice(index, 1);
+    else this.$set(this.keywords, index, e.target.value);
+  }
+
+  @Watch("keywords")
+  ff() {
+    localStorage.setItem("Hh ru api testing", JSON.stringify(this.keywords));
+  }
+
+  created() {
+    let local = localStorage.getItem("Hh ru api testing") || "[]";
+    if (local && local != "[]") {
+      this.keywords = JSON.parse(local);
+    }
+  }
+}
 </script>
 
 <style lang="scss">

@@ -1,6 +1,6 @@
 <template>
-  <div class="Items">
-    <h2 v-if="Result"  @click="showAll">{{search}}: {{Result.found}}</h2>
+  <b-card class="Items">
+    <h2 v-if="Result" @click="showAll">{{search}}: {{Result.found}}</h2>
     <template v-if="isShowAll">
       <div class="item" v-for="item in Result.items" :key="`item-${item.id}`">
         <h3>{{item.name}}</h3>
@@ -13,7 +13,7 @@
         <div v-if="false">{{item}}</div>
       </div>
     </template>
-  </div>
+  </b-card>
 </template>
 
 <script lang="ts">
@@ -26,31 +26,37 @@ export default class Items extends Vue {
   @Prop() private isShowAll!: boolean;
 
   Result = [];
-
   async mounted() {
-    let areas = await load(endpoints.areas);
-    this.Result = await load(endpoints.vacancies, {
-      text: this.search,
-      per_page: 100,
-      page: 1
+    this.Result = await this.$store.dispatch("items/addItem", {
+      type: endpoints.vacancies,
+      params: {
+        text: this.search,
+        per_page: 100,
+        page: 1
+      }
     });
   }
 
   showAll() {
-    this.$emit('showAll')
+    this.$emit("showAll");
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.Items h2 {
-  display: block;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+.Items {
+  margin-top: 1rem;
+  h2 {
+    display: block;
+    margin: 0rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
 }
 
 .item {
+  margin-top: 1rem;
   margin-bottom: 1rem;
   h3 {
     margin-bottom: 5px;

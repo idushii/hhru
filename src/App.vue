@@ -1,29 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <Items
+      @showAll="show(index)"
+      :isShowAll="showIndex == index"
+      v-for="(item, index) in keywords"
+      :search="item"
+      :key="`item${item}`"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import { Component, Vue } from "vue-property-decorator";
+import Items from "@/components/Items.vue";
 
 @Component({
-  components: {
-    HelloWorld,
+  data: () => ({
+    //keywords: ["VueJS"],
+    keywords: ["VueJS", "ReactJS", "Angular", "TypeScript", "Dart"],
+    showIndex: null
+  }),
+  methods: {
+    show(index) {
+      if (this.showIndex == index) this.showIndex = null;
+      else this.showIndex = index;
+    }
   },
+  components: {
+    Items
+  }
 })
 export default class App extends Vue {}
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

@@ -27,6 +27,8 @@
                 ></b-form-input>
               </b-form-group>
             </b-form>
+            <p class="tips">Для удаления элемента очистите поле ввода и нажмите enter</p>
+            <p class="tips">Для добавления элемента введите текст и нажмите enter</p>
           </b-card>
         </b-col>
         <b-col cols="12" v-for="(item, index) in keywords" :key="`item${item}`">
@@ -88,5 +90,9 @@ export default class App extends Vue {
 <style lang="scss">
 .container {
   margin-top: 1rem;
+}
+
+.tips {
+  font-size: .8rem;
 }
 </style>

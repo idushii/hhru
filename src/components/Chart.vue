@@ -1,7 +1,6 @@
 <template>
   <div class="chart">
-    <h2>График</h2>
-    <canvas id="myChart" width="400" height="100"></canvas>
+    <canvas id="myChart" width="400" height="200"></canvas>
   </div>
 </template>
 

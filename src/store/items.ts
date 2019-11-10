@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { load, endpoints, getUrl } from "../api";
+import { load, endpoints, getUrl, defaultParams } from "../api";
 
 interface IState {
     items: {}
@@ -16,6 +16,9 @@ export default {
     namespaced: true,
     state: {
         items: {}
+    },
+    getters: {
+        items: (state: IState) => state.items,
     },
     mutations: {
         addItem(state: IState, { type, params, response }: IAddItem) {

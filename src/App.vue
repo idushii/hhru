@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Chart :keywords="keywords" />
     <Items
       @showAll="show(index)"
       :isShowAll="showIndex == index"
@@ -12,6 +13,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import Chart from "@/components/Chart";
 import Items from "@/components/Items.vue";
 
 @Component({
@@ -27,7 +29,8 @@ import Items from "@/components/Items.vue";
     }
   },
   components: {
-    Items
+    Items,
+    Chart,
   }
 })
 export default class App extends Vue {}

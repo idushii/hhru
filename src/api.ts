@@ -5,6 +5,13 @@ enum endpoints {
     vacancies = "vacancies",
 }
 
+let defaultParams = {
+    text: '',
+    per_page: 100,
+    page: 1
+}
+
+
 function load(type: endpoints, params?: {}) {
     let url = getUrl(type, params)
     if (window.localStorage.getItem(url)) {
@@ -24,4 +31,5 @@ function getUrl(type: endpoints, params?: {}) {
     return url.href
 }
 
-export { base, endpoints, load, getUrl }
+
+export { base, endpoints, load, getUrl, defaultParams }

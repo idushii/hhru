@@ -46,7 +46,7 @@ export default class Items extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .Items {
-  margin-bottom: 1rem;
+  margin-top: 1rem;
   h2 {
     display: block;
     margin: 0rem;

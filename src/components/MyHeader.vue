@@ -8,5 +8,5 @@
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 @Component
 export default class MyHeader extends Vue {
-}
+};
 </script>

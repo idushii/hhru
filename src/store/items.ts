@@ -26,7 +26,7 @@ export default {
         }
     },
     actions: {
-        async addItem({ commit }, { type, params }: IAddItem) {
+        async addItem({commit} : any, { type, params }: IAddItem) {
             let response = await load(endpoints[type], params);
             commit('addItem', { type, params, response })
             return response

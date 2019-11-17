@@ -40,7 +40,7 @@ export default class Items extends Vue {
   showAll() {
     this.$emit("showAll");
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

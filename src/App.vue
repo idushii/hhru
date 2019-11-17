@@ -88,7 +88,7 @@ export default class App extends Vue {
       this.keywords = JSON.parse(local);
     }
   }
-}
+};
 </script>
 
 <style lang="scss">

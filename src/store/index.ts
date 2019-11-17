@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-import items from "./items";
+import items from './items';
 
 export default new Vuex.Store({
   state: {
@@ -13,6 +13,6 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    items
+    items,
   },
 });

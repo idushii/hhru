@@ -17,30 +17,30 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-import { load, endpoints } from "../api";
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import { load, endpoints } from '../api';
 
 @Component
 export default class Items extends Vue {
+
+  public Result = [];
   @Prop() private search!: string;
   @Prop() private isShowAll!: boolean;
-
-  Result = [];
-  async mounted() {
-    this.Result = await this.$store.dispatch("items/addItem", {
+  public async mounted() {
+    this.Result = await this.$store.dispatch('items/addItem', {
       type: endpoints.vacancies,
       params: {
         text: this.search,
         per_page: 100,
-        page: 1
-      }
+        page: 1,
+      },
     });
   }
 
-  showAll() {
-    this.$emit("showAll");
+  public showAll() {
+    this.$emit('showAll');
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

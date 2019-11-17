@@ -44,51 +44,51 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Ref, Watch } from "vue-property-decorator";
-import Chart from "@/components/Chart.vue";
-import Items from "@/components/Items.vue";
-import MyHeader from "@/components/MyHeader.vue";
+import { Component, Prop, Vue, Ref, Watch } from 'vue-property-decorator';
+import Chart from '@/components/Chart.vue';
+import Items from '@/components/Items.vue';
+import MyHeader from '@/components/MyHeader.vue';
 
 @Component({
   components: {
     Items,
     Chart,
-    MyHeader
-  }
+    MyHeader,
+  },
 })
 export default class App extends Vue {
-  keywords = ["VueJS", "ReactJS", "Angular", "TypeScript", "Dart"];
-  showIndex: number = -1;
-  newKeyWord = "";
+  public keywords = ['VueJS', 'ReactJS', 'Angular', 'TypeScript', 'Dart'];
+  public showIndex: number = -1;
+  public newKeyWord = '';
 
-  show(index: number) {
-    if (this.showIndex == index) this.showIndex = -1;
-    else this.showIndex = index;
+  public show(index: number) {
+    if (this.showIndex == index) { this.showIndex = -1; }
+    else { this.showIndex = index; }
   }
 
-  AddKeyWord() {
+  public AddKeyWord() {
     this.keywords.push(this.newKeyWord);
-    this.newKeyWord = "";
+    this.newKeyWord = '';
   }
 
-  removeKeyWord(index: number, e: any) {
+  public removeKeyWord(index: number, e: any) {
     console.log(e.target.value);
-    if (e.target.value == "") this.keywords.splice(index, 1);
-    else this.$set(this.keywords, index, e.target.value);
+    if (e.target.value == '') { this.keywords.splice(index, 1); }
+    else { this.$set(this.keywords, index, e.target.value); }
   }
 
-  @Watch("keywords")
-  ff() {
-    localStorage.setItem("Hh ru api testing", JSON.stringify(this.keywords));
+  @Watch('keywords')
+  public ff() {
+    localStorage.setItem('Hh ru api testing', JSON.stringify(this.keywords));
   }
 
-  created() {
-    let local = localStorage.getItem("Hh ru api testing") || "[]";
-    if (local && local != "[]") {
+  public created() {
+    const local = localStorage.getItem('Hh ru api testing') || '[]';
+    if (local && local != '[]') {
       this.keywords = JSON.parse(local);
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

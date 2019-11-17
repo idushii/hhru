@@ -1,8 +1,8 @@
 <template>
   <div class="item">
     <h3>{{name}}</h3>
-    <div v-if="address">{{address.city}}</div>
-    <div v-if="snippet">
+    <div class="address" v-if="address">{{address.city}}</div>
+    <div class="snippet" v-if="snippet">
       <div v-html="snippet.requirement" />
       <div v-html="snippet.responsibility" />
     </div>
@@ -12,15 +12,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-interface IAddress {
-  city: string;
-}
-
-interface ISnippet {
-  city: string;
-}
+import { IAddress, ISnippet } from './item.d';
 
 @Component
 export default class Item extends Vue {

@@ -15,7 +15,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { load, endpoints } from '../api';
-import item from "./item.vue";
+import item from './item.vue';
 
 @Component({
   components: {
@@ -23,10 +23,10 @@ import item from "./item.vue";
   },
 })
 export default class Items extends Vue {
-  @Prop() private search!: string;
-  @Prop() private isShowAll!: boolean;
 
   public Result = [];
+  @Prop() private search!: string;
+  @Prop() private isShowAll!: boolean;
 
   public async mounted() {
     this.Result = await this.$store.dispatch('items/addItem', {

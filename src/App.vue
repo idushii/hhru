@@ -62,8 +62,7 @@ export default class App extends Vue {
   public newKeyWord = '';
 
   public show(index: number) {
-    if (this.showIndex == index) { this.showIndex = -1; }
-    else { this.showIndex = index; }
+    if (this.showIndex == index) { this.showIndex = -1; } else { this.showIndex = index; }
   }
 
   public AddKeyWord() {
@@ -73,8 +72,7 @@ export default class App extends Vue {
 
   public removeKeyWord(index: number, e: any) {
     console.log(e.target.value);
-    if (e.target.value == '') { this.keywords.splice(index, 1); }
-    else { this.$set(this.keywords, index, e.target.value); }
+    if (e.target.value == '') { this.keywords.splice(index, 1); } else { this.$set(this.keywords, index, e.target.value); }
   }
 
   @Watch('keywords')

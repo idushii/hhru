@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/hhru/precache-manifest.c70795e50493e9c4dda44cbc9a870080.js"
+  "/hhru/precache-manifest.258107fa3dd1b77a4bacf555c7e3008e.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "hhru"});

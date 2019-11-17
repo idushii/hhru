@@ -10,7 +10,7 @@ import Items from '@/components/Items.vue'
 export default {
   name: 'home',
   components: {
-    Items
+    Items,
   }
-}
+};
 </script>

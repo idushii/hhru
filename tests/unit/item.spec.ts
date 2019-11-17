@@ -30,19 +30,19 @@ describe('item.vue', () => {
       },
     });
 
-    expect(wrapper.classes('item')).toBe(true)
+    expect(wrapper.classes('item')).toBe(true);
 
-    const addressDiv = wrapper.find('.address')
-    expect(addressDiv.is('div')).toBe(true)
-    const snippetDiv = wrapper.find('.snippet')
-    expect(snippetDiv.is('div')).toBe(true)
+    const addressDiv = wrapper.find('.address');
+    expect(addressDiv.is('div')).toBe(true);
+    const snippetDiv = wrapper.find('.snippet');
+    expect(snippetDiv.is('div')).toBe(true);
   });
 
   it('renders no class when passed', () => {
     const name = 'My Name';
     const alternate_url = 'URL';
-    const address = false
-    const snippet = false
+    const address = false;
+    const snippet = false;
 
     const wrapper = shallowMount(item, {
       propsData: {
@@ -50,9 +50,9 @@ describe('item.vue', () => {
       },
     });
 
-    const addressDiv = wrapper.find('.address')
-    expect(addressDiv.exists()).toBe(false)
-    const snippetDiv = wrapper.find('.snippet')
-    expect(snippetDiv.exists()).toBe(false)
+    const addressDiv = wrapper.find('.address');
+    expect(addressDiv.exists()).toBe(false);
+    const snippetDiv = wrapper.find('.snippet');
+    expect(snippetDiv.exists()).toBe(false);
   });
 });

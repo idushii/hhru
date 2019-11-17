@@ -27,13 +27,13 @@ function load(type: endpoints, params?: {}) {
 function getUrl(type: endpoints, params?: {}): string {
     const url = new URL(`${base}/${type}`);
     if (params) {
-        let keys = Object.keys(params)
-        let values = Object.keys(params)
+        const keys = Object.keys(params);
+        const values: string[] = Object.values(params);
 
         keys.forEach((key, index) => {
             url.searchParams.append(key, values[index]);
 
-        })
+        });
     }
     return url.href;
 }

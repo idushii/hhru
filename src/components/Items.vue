@@ -4,7 +4,7 @@
     <template v-if="isShowAll">
       <item v-for="item in Result.items" :key="`item-${item.id}`"  
         :name="item.name" 
-        :alternate_url="item.alternate_url" 
+        :AlternateUrl="item.alternate_url" 
         :address="item.address" 
         :snippet="item.snippet" 
       />

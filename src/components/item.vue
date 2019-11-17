@@ -6,7 +6,7 @@
       <div v-html="snippet.requirement" />
       <div v-html="snippet.responsibility" />
     </div>
-    <a :href="alternate_url" target="_blank">Ссылка</a>
+    <a :href="AlternateUrl" target="_blank">Ссылка</a>
     <div v-if="false">{{item}}</div>
   </div>
 </template>
@@ -19,7 +19,7 @@ import { IAddress, ISnippet } from './item.d';
 @Component
 export default class Item extends Vue {
   @Prop() private name!: string;
-  @Prop() private alternate_url!: string;
+  @Prop() private AlternateUrl!: string;
   @Prop() private address!: IAddress;
   @Prop() private snippet!: ISnippet;
 }

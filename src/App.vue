@@ -36,7 +36,9 @@
         </b-col>
       </b-row>
       <b-col>
-        <p class="tips my-footer">Обратите внимание, что данные локально кешируются при первом запросе. Для получения актуальной информации очистите кеш.</p>
+        <p
+          class="tips my-footer"
+        >Обратите внимание, что данные локально кешируются при первом запросе. Для получения актуальной информации очистите кеш.</p>
       </b-col>
       <b-row></b-row>
     </b-container>
@@ -62,7 +64,11 @@ export default class App extends Vue {
   public newKeyWord = '';
 
   public show(index: number) {
-    if (this.showIndex == index) { this.showIndex = -1; } else { this.showIndex = index; }
+    if (this.showIndex === index) {
+      this.showIndex = -1;
+    } else {
+      this.showIndex = index;
+    }
   }
 
   public AddKeyWord() {
@@ -72,7 +78,11 @@ export default class App extends Vue {
 
   public removeKeyWord(index: number, e: any) {
     console.log(e.target.value);
-    if (e.target.value == '') { this.keywords.splice(index, 1); } else { this.$set(this.keywords, index, e.target.value); }
+    if (e.target.value === '' || e.target.value === 0) {
+      this.keywords.splice(index, 1);
+    } else {
+      this.$set(this.keywords, index, e.target.value);
+    }
   }
 
   @Watch('keywords')
@@ -82,7 +92,7 @@ export default class App extends Vue {
 
   public created() {
     const local = localStorage.getItem('Hh ru api testing') || '[]';
-    if (local && local != '[]') {
+    if (local && local !== '[]') {
       this.keywords = JSON.parse(local);
     }
   }

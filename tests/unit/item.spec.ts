@@ -4,13 +4,13 @@ import item from '@/components/item.vue';
 describe('item.vue', () => {
   it('renders props when passed', () => {
     const name = 'My Name';
-    const alternate_url = 'URL';
+    const AlternateUrl = 'URL';
     const address = { city: 'My  City' };
     const snippet = { requirement: '1', responsibility: '11' };
 
     const wrapper = shallowMount(item, {
       propsData: {
-        name, alternate_url, address, snippet,
+        name, AlternateUrl, address, snippet,
       },
     });
     expect(wrapper.text()).toMatch(name);
@@ -20,13 +20,13 @@ describe('item.vue', () => {
   });
   it('renders class when passed', () => {
     const name = 'My Name';
-    const alternate_url = 'URL';
+    const AlternateUrl = 'URL';
     const address = { city: 'My  City' };
     const snippet = { requirement: '1', responsibility: '11' };
 
     const wrapper = shallowMount(item, {
       propsData: {
-        name, alternate_url, address, snippet,
+        name, AlternateUrl, address, snippet,
       },
     });
 
@@ -40,13 +40,13 @@ describe('item.vue', () => {
 
   it('renders no class when passed', () => {
     const name = 'My Name';
-    const alternate_url = 'URL';
+    const AlternateUrl = 'URL';
     const address = false;
     const snippet = false;
 
     const wrapper = shallowMount(item, {
       propsData: {
-        name, alternate_url, address, snippet,
+        name, AlternateUrl, address, snippet,
       },
     });
 
